@@ -1,0 +1,505 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	
+		<title>ECharts</title>
+		<!-- 引入 echarts.js -->
+		<script type="text/javascript" src="./common/echarts/echarts.js"></script>
+		<!-- 引入公共js -->
+		<script type="text/javascript" src="./common/js/util.js"></script>
+		<!-- 
+		<script  src="http://cdn.bootcss.com/echarts/3.2.3/echarts.min.js"></script>
+		 -->
+<style type="text/css">
+table,th
+  {
+  border:1px solid #c1eeb5;
+  }
+
+table
+  {
+  width:100%;
+  }
+
+th
+  {
+  height:50px;
+  }
+</style>
+	    <script type="text/javascript">
+        
+        window.onload = function () { // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('leftMain'));
+            // 指定图表的配置项和数据
+    option = {
+        title : {
+            text: '',
+            subtext: '',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient : 'vertical',
+            x : 'left',
+            data:['气费','电费','水费']
+        },
+/*         toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {
+                    show: true, 
+                    type: ['pie', 'funnel'],
+                    option: {
+                        funnel: {
+                            x: '25%',
+                            width: '50%',
+                            funnelAlign: 'left',
+                            max: 1548
+                        }
+                    }
+                },
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        }, */
+        calculable : true,
+        series : [
+            {
+                name:'',
+                type:'pie',
+                radius: ['50%', '70%'],
+                center: ['50%', '60%'],
+                data:[
+                    {value:335, name:'气费'},
+                    {value:310, name:'电费'},
+                    {value:234, name:'水费'}
+                
+                ]
+            }
+        ]
+    };
+              
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+            
+            
+            
+            var myChart01 = echarts.init(document.getElementById('myleft'));
+            // 指定图表的配置项和数据
+    option1 = {
+        title : {
+            text: '',
+            subtext: '',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient : 'vertical',
+            x : 'left',
+            data:['公务接待费','公务用车运行','因公出国(境)费']
+        },
+/*         toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {
+                    show: true, 
+                    type: ['pie', 'funnel'],
+                    option: {
+                        funnel: {
+                            x: '25%',
+                            width: '50%',
+                            funnelAlign: 'left',
+                            max: 1548
+                        }
+                    }
+                },
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        }, */
+        calculable : true,
+        series : [
+            {
+                name:'',
+                type:'pie',
+                radius: ['50%', '70%'],
+                center: ['50%', '60%'],
+                data:[
+                    {value:335, name:'公务接待费'},
+                    {value:310, name:'公务用车运行'},
+                    {value:234, name:'因公出国(境)费'}
+                
+                ]
+            }
+        ]
+    };
+              
+            // 使用刚指定的配置项和数据显示图表。
+            myChart01.setOption(option1);
+            
+            
+            
+            
+            var myChart02 = echarts.init(document.getElementById('main'));
+            // 指定图表的配置项和数据
+            var option2 = {
+                title: {
+                    text: '指标3年同比',
+                        x: 'center'
+                },
+                tooltip: {},
+                legend: {
+                	 bottom: 10,
+                    data:['年月']
+                },
+                xAxis: {
+                    data: ["2016-05","2017-05","2018-05"]
+                },
+                yAxis: {
+                    splitLine: {                // 网格线 y轴对应的是否显示
+    		            show: false
+    		        }
+                },
+                series: [{
+                    name: '年月',
+            
+                    type: 'bar',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'inside'
+                        }
+                    },
+                    data: [350000, 100500, 200000]
+                
+                }]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart02.setOption(option2);
+            
+            var myChart03 = echarts.init(document.getElementById('line'));
+            
+            option03 = {
+                    title: {
+                        text: '指标12月环比',
+                            x: 'center'
+                    },
+                    legend: {
+                   	 bottom: 10,
+                        data: ['值列']
+                    },
+            	    xAxis: {
+            	        type: 'category',
+            	        boundaryGap: false,
+            	        data: ["2017-06","2017-08","2017-10","2017-12","2018-02","2018-04"]
+            	    },
+            	    yAxis: {
+            	        type: 'value',
+            	        splitLine: {                // 网格线 y轴对应的是否显示
+        		            show: false
+        		        }
+            	    },
+            	    series: [{
+            	        data: [90000, 265000, 345000, 205000, 255000, 455000, 1320],
+            	        name: '值列',
+            	        type: 'line',
+            	         itemStyle:{
+                             normal:{
+                                 color:'rgb(164,205,238)'
+                             }
+            	         }
+            	    }]
+            	};
+            myChart03.setOption(option03);
+            //=========================================柄哥的
+                var myChart05 = echarts.init(document.getElementById('line05'));
+            option05 = {
+            	    title: {
+            	        text: '堆叠区域图'
+            	    },
+            	    tooltip : {
+            	        trigger: 'axis',
+            	        axisPointer: {
+            	            type: 'cross',
+            	            label: {
+            	                backgroundColor: '#6a7985'
+            	            }
+            	        }
+            	    },
+            	    legend: {
+            	        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+            	    },
+            	    toolbox: {
+            	        feature: {
+            	            saveAsImage: {}
+            	        }
+            	    },
+            	    grid: {
+            	        left: '3%',
+            	        right: '4%',
+            	        bottom: '3%',
+            	        containLabel: true
+            	    },
+            	    xAxis : [
+            	        {
+            	            type : 'category',
+            	            boundaryGap : false,
+            	            data : ['周一','周二','周三','周四','周五','周六','周日']
+            	        }
+            	    ],
+            	    yAxis : [
+            	        {
+            	            type : 'value'
+            	        }
+            	    ],
+            	    series : [
+            	        {
+            	            name:'邮件营销',
+            	            type:'line',
+            	            stack: '总量',
+            	            areaStyle: {normal: {}},
+            	            data:[120, 132, 101, 134, 90, 230, 210]
+            	        },
+            	        {
+            	            name:'联盟广告',
+            	            type:'line',
+            	            stack: '总量',
+            	            areaStyle: {normal: {}},
+            	            data:[220, 182, 191, 234, 290, 330, 310]
+            	        },
+            	        {
+            	            name:'视频广告',
+            	            type:'line',
+            	            stack: '总量',
+            	            areaStyle: {normal: {}},
+            	            data:[150, 232, 201, 154, 190, 330, 410]
+            	        },
+            	        {
+            	            name:'直接访问',
+            	            type:'line',
+            	            stack: '总量',
+            	            areaStyle: {normal: {}},
+            	            data:[320, 332, 301, 334, 390, 330, 320]
+            	        },
+            	        {
+            	            name:'搜索引擎',
+            	            type:'line',
+            	            stack: '总量',
+            	            label: {
+            	                normal: {
+            	                    show: true,
+            	                    position: 'top'
+            	                }
+            	            },
+            	            areaStyle: {normal: {}},
+            	            data:[820, 932, 901, 934, 1290, 1330, 1320]
+            	        }
+            	    ]
+            	};
+			
+            myChart05.setOption(option05);
+          
+ }
+       
+</script>
+
+	</head>
+	<body>
+    <div class="layout">
+      <div class="layout-center">
+         <div class="one">
+          <div class="one-top">
+
+          </div>
+
+        </div> 
+        <div class="two" style="display:inline-block;">
+        <div style="width: auto; height: auto;">
+        		        <table>
+		<tr>
+		<th>Firstname</th>
+		<th>Lastname</th>
+		<th>Firstname</th>
+		<th>Lastname</th>
+		</tr>
+		<tr>
+		<td>Bill</td>
+		<td>Gates</td>
+		<td>Bill</td>
+		<td>Gates</td>
+		</tr>
+		<tr>
+		<td>Steven</td>
+		<td>Jobs</td>
+		<td>Bill</td>
+		<td>Gates</td>
+		</tr>
+			<tr>
+		<td>Bill</td>
+		<td>Gates</td>
+		<td>Bill</td>
+		<td>Gates</td>
+		</tr>
+			<tr>
+		<td>Bill</td>
+		<td>Gates</td>
+		<td>Bill</td>
+		<td>Gates</td>
+		</tr>
+			<tr>
+		<td>Bill</td>
+		<td>Gates</td>
+		<td>Bill</td>
+		<td>Gates</td>
+		</tr>
+			<tr>
+		<td>Bill</td>
+		<td>Gates</td>
+		<td>Bill</td>
+		<td>Gates</td>
+		</tr>
+			<tr>
+		<td>Bill</td>
+		<td>Gates</td>
+		<td>Bill</td>
+		<td>Gates</td>
+		</tr>
+			<tr>
+		<td>Bill</td>
+		<td>Gates</td>
+		<td>Bill</td>
+		<td>Gates</td>
+		</tr>
+			<tr>
+		<td>Bill</td>
+		<td>Gates</td>
+		<td>Bill</td>
+		<td>Gates</td>
+		</tr>
+		</table>
+        </div>
+
+
+        </div>
+        <div  class="three" style="display:inline-block;" >
+        <div id="leftMain" style="width: 500px; height: 300px;" ></div>
+        </div>
+        <div class="four" style="display:inline-block;" >
+          <div id="line05" style="width: 500px; height: 300px;" ></div>
+        </div>
+      </div>
+             <div class="five"  >
+             <div id=bline01 style="width: 600px; height: 300px;" ></div>
+             
+             <script type="text/javascript">
+             var bb01 = echarts.init(document.getElementById('bline01'));
+             
+             bboption01 = {
+                
+                     legend: {
+                    	 bottom: 10,
+                         data: ['床均收入']
+                     },
+             	    xAxis: {
+             	        type: 'category',
+             	        boundaryGap: false,
+             	        data: ["2017-06","2017-08","2017-10","2017-12","2018-02","2018-04"]
+             	    },
+             	    yAxis: {
+             	        type: 'value',
+             	        splitLine: {                // 网格线 y轴对应的是否显示
+         		            show: false
+         		        },
+         		       axisLabel: {
+           	            formatter: '{value}万'
+           	        }
+             	    },
+             	    series: [{
+             	       data: [9, 26.5, 34.5, 20.5, 25.5, 45.5, 0.132],
+             	        name: '床均收入',
+             	        type: 'line',
+             	         itemStyle:{
+                              normal:{
+                                  color:'rgb(164,205,238)'
+                              }
+             	         }
+             	    }]
+             	};
+             bb01.setOption(bboption01);
+             </script>
+        </div>
+        <div class="six"  >
+               <div id="bline" style="width: 600px; height: 300px;" ></div>
+               <script type="text/javascript">
+               
+               var bb = echarts.init(document.getElementById('bline'));
+               
+               bboption = {
+                  
+                       legend: {
+                      	 bottom: 10,
+                           data: ['人均收入']
+                       },
+               	    xAxis: {
+               	        type: 'category',
+               	        boundaryGap: false,
+               	        data: ["2017-06","2017-08","2017-10","2017-12","2018-02","2018-04"]
+               	    },
+               	    yAxis: {
+               	        type: 'value',
+               	        splitLine: {                // 网格线 y轴对应的是否显示
+           		            show: false
+           		        },
+                    axisLabel: {
+        	            formatter: '{value}万'
+        	        }
+               	    },
+               	    series: [{
+               	        data: [9, 26.5, 34.5, 20.5, 25.5, 45.5, 0.132],
+               	        name: '人均收入',
+               	        type: 'line',
+               	         itemStyle:{
+                                normal:{
+                                    color:'rgb(164,205,238)'
+                                }
+               	         }
+               	    }]
+               	};
+               bb.setOption(bboption);
+               
+               
+               
+               
+               
+               </script>
+        </div>
+      </div>
+<!--       <div class="three">
+      </div> -->
+<!--       <div class="layout-right">
+        <div class="one">
+          <div class="div-charts" style="background:blue;"></div>
+          <div class="div-charts" style="background:blue;"></div>
+        </div>
+        <div class="two">
+          <div class="div-charts" style="background:red;"></div>
+        </div>
+      </div> -->
+      
+
+  </body>
+  
+  		
+</html>
